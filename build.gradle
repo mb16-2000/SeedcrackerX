@@ -40,11 +40,10 @@ dependencies {
 	include implementation(fabricApi.module("fabric-resource-loader-v0", project.fabric_api_version))
 	include implementation(fabricApi.module("fabric-resource-loader-v1", project.fabric_api_version))
 
-    // waiting for the cloth config update
-	//api("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
-	//	exclude(group: "net.fabricmc.fabric-api")
-	//}
-	//include("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}")
+	api("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+	include("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}")
 
 	// modImplementation ("com.terraformersmc:modmenu:${project.modmenu_version}") {transitive = false}
 
@@ -87,15 +86,15 @@ tasks.register("prodClient", ClientProductionRunTask) {
 	jvmArgs.add("-Ddevauth.enabled=true")
 
 	javaLauncher = javaToolchains.launcherFor {
-		languageVersion = JavaLanguageVersion.of(21)
+		languageVersion = JavaLanguageVersion.of(25)
 	}
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 21
+	it.options.release = 25
 }
 
 java {
-	sourceCompatibility = JavaVersion.VERSION_21
-	targetCompatibility = JavaVersion.VERSION_21
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
 }

@@ -80,12 +80,14 @@ public class FinderQueue {
         state.setData(CUBOID_SET_KEY, cuboids);
     }
 
-    public void renderCuboids(MultiBufferSource bufferSource, PoseStack poseStack, LevelRenderState state) {
+    public void renderCuboids(MultiBufferSource.BufferSource bufferSource, PoseStack poseStack, LevelRenderState state) {
         Set<Cuboid> cuboids = state.getData(CUBOID_SET_KEY);
         if (cuboids == null) {
             return;
         }
         cuboids.forEach(cuboid -> cuboid.render(poseStack, bufferSource));
+        // fabric did an upsie and now you need to call end batch after the event...
+        bufferSource.endBatch();
     }
 
     public List<Finder.Type> getActiveFinderTypes() {

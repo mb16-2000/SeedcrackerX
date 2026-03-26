@@ -17,7 +17,7 @@ public final class NoDepthLayer {
     private static final RenderPipeline LINES_NO_DEPTH_PIPELINE = RenderPipelines.register(
         RenderPipeline.builder(RenderPipelines.LINES_SNIPPET)
             .withLocation(Identifier.fromNamespaceAndPath("seedcrackerx", "pipeline/lines_no_depth"))
-            .withDepthStencilState(new DepthStencilState(CompareOp.ALWAYS_PASS, false, 0, 0)) // todo check this
+            .withDepthStencilState(new DepthStencilState(CompareOp.ALWAYS_PASS, false, 0, 0))
             .build()
     );
 
