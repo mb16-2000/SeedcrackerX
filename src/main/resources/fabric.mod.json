@@ -20,11 +20,16 @@
       "kaptainwutax.seedcrackerX.SeedCracker"
     ],
     "modmenu": [
+<<<<<<< HEAD
+=======
+      "kaptainwutax.seedcrackerX.config.ScModMenuEntry"
+>>>>>>> origin/revert-83-forge
     ]
   },
   "mixins": [
     "seedcracker.mixins.json"
   ],
+<<<<<<< HEAD
   "accessWidener": "seedcrackerx.aw",
   "depends": {
     "fabricloader": ">=${loader_version}",
@@ -40,5 +45,12 @@
   "suggests": {
     "flamingo": "*",
     "modmenu": "*"
+=======
+  "depends": {
+    "fabricloader": ">=0.4.0"
+  },
+  "suggests": {
+    "flamingo": "*"
+>>>>>>> origin/revert-83-forge
   }
 }

@@ -18,12 +18,19 @@ import kaptainwutax.seedcrackerX.cracker.BiomeData;
 import kaptainwutax.seedcrackerX.cracker.decorator.Decorator;
 import kaptainwutax.seedcrackerX.util.Database;
 import kaptainwutax.seedcrackerX.util.Log;
+<<<<<<< HEAD
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+=======
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.text.Text;
+import net.minecraft.world.gen.random.ChunkRandom;
+import net.minecraft.world.gen.random.Xoroshiro128PlusPlusRandom;
+>>>>>>> origin/revert-83-forge
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -80,10 +87,17 @@ public class TimeMachine {
         if (this.worldSeeds.size() == 1 && !this.shouldTerminate) {
             long seed = worldSeeds.stream().findFirst().get();
             SeedCracker.entrypoints.forEach(entrypoint -> entrypoint.pushWorldSeed(seed));
+<<<<<<< HEAD
             Minecraft client = Minecraft.getInstance();
             if (Config.get().databaseSubmits && client.getConnection().getOnlinePlayers().size() > 10 &&
                     !client.getConnection().getConnection().isMemoryConnection()) {
                 Component text = Database.joinFakeServerForAuth();
+=======
+            MinecraftClient client = MinecraftClient.getInstance();
+            if (Config.get().databaseSubmits && client.getNetworkHandler().getPlayerList().size() > 10 &&
+                    !client.getNetworkHandler().getConnection().isLocal()) {
+                Text text = Database.joinFakeServerForAuth();
+>>>>>>> origin/revert-83-forge
                 if (text == null) {
                     Database.handleDatabaseCall(seed);
                 } else {

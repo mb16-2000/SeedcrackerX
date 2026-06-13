@@ -7,11 +7,17 @@ import kaptainwutax.seedcrackerX.Features;
 import kaptainwutax.seedcrackerX.cracker.storage.DataStorage;
 import kaptainwutax.seedcrackerX.cracker.storage.ScheduledSet;
 import net.fabricmc.loader.api.FabricLoader;
+<<<<<<< HEAD
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.Connection;
 import net.minecraft.world.level.storage.LevelResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+=======
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.network.ClientConnection;
+import net.minecraft.util.WorldSavePath;
+>>>>>>> origin/revert-83-forge
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -27,7 +33,14 @@ import java.util.Scanner;
 public class StructureSave {
     private static final Logger logger = LoggerFactory.getLogger("structureSave");
 
+<<<<<<< HEAD
     public static final Path saveDir = Paths.get(FabricLoader.getInstance().getConfigDir().toFile().toString(), "SeedCrackerX saved structures");
+=======
+    public static final File saveDir = new File(FabricLoader.getInstance().getConfigDir().toFile(), "SeedCrackerX saved structures");
+    private static final List<RegionStructure<?,?>> structureTypes = List.of(Features.IGLOO,Features.BURIED_TREASURE,
+            Features.PILLAGER_OUTPOST,Features.DESERT_PYRAMID, Features.JUNGLE_PYRAMID, Features.END_CITY,
+            Features.MONUMENT, Features.SHIPWRECK, Features.SWAMP_HUT);
+>>>>>>> origin/revert-83-forge
 
     public static void saveStructures(ScheduledSet<DataStorage.Entry<Feature.Data<?>>> baseData) {
         try {

@@ -6,8 +6,11 @@ import com.google.gson.GsonBuilder;
 import com.seedfinding.mccore.version.MCVersion;
 import kaptainwutax.seedcrackerX.Features;
 import kaptainwutax.seedcrackerX.util.FeatureToggle;
+<<<<<<< HEAD
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+=======
+>>>>>>> origin/revert-83-forge
 
 import java.io.File;
 import java.io.FileReader;
@@ -16,8 +19,11 @@ import java.io.IOException;
 import java.io.Reader;
 
 public class Config {
+<<<<<<< HEAD
     private static final Logger logger = LoggerFactory.getLogger("config");
 
+=======
+>>>>>>> origin/revert-83-forge
     private static final File file = new File(net.fabricmc.loader.api.FabricLoader.getInstance().getConfigDir().toFile(), "seedcracker.json");
     private static Config INSTANCE = new Config();
     public FeatureToggle buriedTreasure = new FeatureToggle(true);
